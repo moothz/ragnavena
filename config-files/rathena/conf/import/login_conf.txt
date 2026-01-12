@@ -1,0 +1,5 @@
+login_port: 26900
+use_MD5_test: no
+check_client_version: no
+console_msg_log: 3
+new_account: yes

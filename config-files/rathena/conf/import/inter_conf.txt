@@ -1,0 +1,23 @@
+login_server_id: ragnarok
+login_server_pw: BatataRagnavenaServerRoque
+login_server_db: ragnavena
+
+ipban_db_id: ragnarok
+ipban_db_pw: BatataRagnavenaServerRoque
+ipban_db_db: ragnavena
+
+char_server_id: ragnarok
+char_server_pw: BatataRagnavenaServerRoque
+char_server_db: ragnavena
+
+map_server_id: ragnarok
+map_server_pw: BatataRagnavenaServerRoque
+map_server_db: ragnavena
+
+log_db_id: ragnarok
+log_db_pw: BatataRagnavenaServerRoque
+log_db_db: ragnavena
+
+web_server_id: ragnarok
+web_server_pw: BatataRagnavenaServerRoque
+web_server_db: ragnavena

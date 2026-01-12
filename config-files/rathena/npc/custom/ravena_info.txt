@@ -1,0 +1,213 @@
+// Ravena - The God NPC
+// Location: darkmall 99, 145
+// Sprite: 510
+
+darkmall,99,145,4	script	Ravena	510,{
+	// Auto Heal on Interaction
+	percentheal 100,100;
+	specialeffect2 EF_HEAL2;
+	
+	mes "[Ravena]";
+	mes "Bem vindo ao ^660099Ragnavena^000000, o lobby ragnarokiano da ^660099ravenabot^000000!";
+	mes " ";
+	mes "^0000FF> https://ravena.moothz.win^000000";
+	next;
+
+	switch(select("Mudar Classe:Resetar:Estilista:Buffs:Refinar Equipamento:PvP:Mobs:Cancelar")) {
+	
+	// =============================================================
+	// 1. CLASSE
+	// =============================================================
+	case 1:
+		mes "[Ravena]";
+		mes "Escolha sua categoria.";
+		next;
+		switch(select("1� Classe:2� Classe:Transclasses:Expandidas")) {
+			case 1:
+				// 1st Class
+				set .@job, select("Swordman:Mage:Archer:Acolyte:Merchant:Thief:Super Novice");
+				if(.@job==7) jobchange 4001;
+				else jobchange .@job; 
+				break;
+			case 2:
+				// 2nd Class
+				switch(select("Knight:Crusader:Wizard:Sage:Hunter:Bard:Dancer:Priest:Monk:Blacksmith:Alchemist:Assassin:Rogue")) {
+					case 1: jobchange 7; break;
+					case 2: jobchange 14; break;
+					case 3: jobchange 9; break;
+					case 4: jobchange 16; break;
+					case 5: jobchange 11; break;
+					case 6: jobchange 19; break;
+					case 7: jobchange 20; break;
+					case 8: jobchange 8; break;
+					case 9: jobchange 15; break;
+					case 10: jobchange 10; break;
+					case 11: jobchange 18; break;
+					case 12: jobchange 12; break;
+					case 13: jobchange 17; break;
+				}
+				break;
+			case 3:
+				// Rebirth
+				switch(select("Lord Knight:Paladin:High Wizard:Scholar:Sniper:Minstrel:Gypsy:High Priest:Champion:Whitesmith:Creator:Assassin Cross:Stalker")) {
+					case 1: jobchange 4008; break;
+					case 2: jobchange 4015; break;
+					case 3: jobchange 4010; break;
+					case 4: jobchange 4017; break;
+					case 5: jobchange 4012; break;
+					case 6: jobchange 4020; break;
+					case 7: jobchange 4021; break;
+					case 8: jobchange 4009; break;
+					case 9: jobchange 4016; break;
+					case 10: jobchange 4011; break;
+					case 11: jobchange 4019; break;
+					case 12: jobchange 4013; break;
+					case 13: jobchange 4018; break;
+				}
+				break;
+			case 4:
+				// Expanded
+				switch(select("Taekwon:Star Gladiator:Soul Linker:Gunslinger:Ninja")) {
+					case 1: jobchange 4046; break;
+					case 2: jobchange 4047; break;
+					case 3: jobchange 4049; break;
+					case 4: jobchange 24; break;
+					case 5: jobchange 25; break;
+				}
+				break;
+		}
+		
+		// Reset & Boost
+		resetstatus;
+		resetskill;
+		atcommand "@blvl 98";
+		atcommand "@jlvl 50";
+		atcommand "@allskill";
+		
+		if (Zeny < 10000000) { 
+			set Zeny, Zeny + 100000000;
+			mes "Voc� recebeu 100kk de Zeny.";
+		}
+		
+		specialeffect2 EF_ANGEL2;
+		mes "Classe alterada e atributos resetados.";
+		close;
+
+	// =============================================================
+	// 2. RESET
+	// =============================================================
+	case 2:
+		mes "[Ravena]";
+		mes "O que deseja resetar?";
+		switch(select("Habilidades:Atributos:Ambos")) {
+			case 1: resetskill; break;
+			case 2: resetstatus; break;
+			case 3: resetskill; resetstatus; break;
+		}
+		specialeffect2 EF_RESET;
+		close;
+
+	// =============================================================
+	// 3. ESTILISTA
+	// =============================================================
+	case 3:
+		mes "[Ravena]";
+		mes "Vamos mudar seu visual.";
+		next;
+		switch(select("Cor de Cabelo:Estilo de Cabelo:Cor da Roupa:Mudar Sexo")) {
+		case 1:
+			set .@look, 6;
+			set .@max, 250;
+			break;
+		case 2:
+			set .@look, 1;
+			set .@max, 30;
+			break;
+		case 3:
+			set .@look, 7;
+			set .@max, 500;
+			break;
+		case 4:
+			mes "Aten��o: Voc� ser� desconectado para mudar de sexo.";
+			if(select("Sim:N�o")==2) close;
+			addtimer 1000, "Ravena::OnSexChange";
+			close;
+		}
+		
+		L_StyleLoop:
+		setlook .@look, (.@val % .@max);
+		mes "Gostou?";
+		switch(select("Pr�ximo:Anterior:Salvar")) {
+		case 1:
+			set .@val, .@val + 1;
+			goto L_StyleLoop;
+		case 2:
+			set .@val, .@val - 1;
+			if (.@val < 0) set .@val, .@max;
+			goto L_StyleLoop;
+		case 3:
+			close;
+		}
+		close;
+
+	// =============================================================
+	// 4. BUFFS
+	// =============================================================
+	case 4:
+		sc_start SC_BLESSING, 240000, 10;
+		sc_start SC_INCREASEAGI, 240000, 10;
+		sc_start SC_IMPOSITIO, 240000, 5;
+		sc_start SC_ASSUMPTIO, 240000, 5;
+		specialeffect2 EF_BLESSING;
+		mes "[Ravena]";
+		mes "Voc� foi aben�oado.";
+		close;
+
+	// =============================================================
+	// 5. REFINAR
+	// =============================================================
+	case 5:
+		mes "[Ravena]";
+		mes "Vou aprimorar todos os seus equipamentos equipados em +1.";
+		next;
+		successrefitem 1; // Top
+		successrefitem 2; // Armor
+		successrefitem 3; // L.Hand
+		successrefitem 4; // R.Hand
+		successrefitem 5; // Robe
+		successrefitem 6; // Shoes
+		successrefitem 9; // Mid
+		successrefitem 10; // Low
+		
+		specialeffect2 EF_UPGRADE_SUCCESS;
+		mes "Seus itens brilham mais forte!";
+		close;
+
+	// =============================================================
+	// 6 PVP
+	// =============================================================
+	case 6:
+		mes "[Ravena]";
+		mes "Preparado para a batalha?";
+		if(select("Entrar:Cancelar")==2) close;
+		warp "cell_game",0,0;
+		close;
+
+	// =============================================================
+	// 7. MOBS
+	// =============================================================
+	case 7:
+		mes "[Ravena]";
+		mes "Cuidado com os monstros.";
+		if(select("Entrar:Cancelar")==2) close;
+		warp "haunt_e",164,191;
+		close;
+
+	case 8:
+		close;
+	}
+
+OnSexChange:
+	atcommand "@changesex";
+	end;
+}

@@ -1,0 +1,12 @@
+[submodule "rAthena"]
+	path = rAthena
+	url = https://github.com/rathena/rathena.git
+[submodule "roBrowserLegacy-RemoteClient-JS"]
+	path = roBrowserLegacy-RemoteClient-JS
+	url = https://github.com/FranciscoWallison/roBrowserLegacy-RemoteClient-JS
+[submodule "robrowser-web"]
+	path = robrowser-web
+	url = https://github.com/MrAntares/roBrowserLegacy.git
+[submodule "robrowser-proxy"]
+	path = robrowser-proxy
+	url = https://github.com/moothz/robrowser-proxy

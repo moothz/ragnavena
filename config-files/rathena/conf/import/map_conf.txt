@@ -1,0 +1,2 @@
+map_port: 25121
+char_port: 26121

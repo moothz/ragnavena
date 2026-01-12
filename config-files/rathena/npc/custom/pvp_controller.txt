@@ -1,0 +1,15 @@
+// PvP Controller for cell_game
+
+// Map Flags
+cell_game	mapflag	pvp
+cell_game	mapflag	savepoint	darkmall,99,98
+cell_game	mapflag	noteleport
+cell_game	mapflag	nowarp
+cell_game	mapflag	nomemo
+
+// Return NPC
+// Coordinates are set to center-ish (169, 124) as requested
+cell_game,169,124,4	script	Saída	45,2,2,{
+	warp "darkmall",99,98;
+	end;
+}

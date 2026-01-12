@@ -1,0 +1,5 @@
+char_port: 26121
+login_port: 26900
+pincode_enabled: no
+char_new: yes
+char_new_limit: 9
