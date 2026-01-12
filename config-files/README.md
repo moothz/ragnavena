@@ -75,10 +75,6 @@ This folder (`config-files/`) contains backups of all modified files.
   - *Node.js script that bridges WebSocket (Browser) to TCP (Game Server). Handles path-based routing (e.g., /IP:Port).*
 - **Location:** `/home/moothz/ragnavena/robrowser-proxy/proxy.js`
 
-### Systemd Services
-- **Files:** `systemd/*.service`
-- **Location:** `/etc/systemd/system/`
-
 ## 5. Access
 
 - **Web Client:** https://ragnavena.moothz.win (Forwarded to localhost:28000)
