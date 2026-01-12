@@ -4,6 +4,8 @@ Código fonte e configurações que rodam o servidor de RO (apenas um lobby/gath
 
 Publiquei ele a pedidos dos membros que se interessaram em como foi feito - não é um repositório 'ready to use', mas sim para ser usado como consulta para quem busca fazer algo semelhante.
 
+## Hello, world!
+![ragnavena, online!](./assets/ragnavena.jpg)
 ## Estrutura do Projeto
 
 Este projeto utiliza Submódulos Git para os componentes principais para permitir atualizações fáceis do upstream enquanto mantém as configurações customizadas.
